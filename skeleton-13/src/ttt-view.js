@@ -12,15 +12,32 @@ class View {
 
   bindEvents() {  
     const bindEvent = e => {
+      // debugger
       const $li = $(e.currentTarget);
-      this.makeMove($li.pos)
+      this.makeMove($li);
     }
   
     $("ul").on("click", "li", bindEvent);
   }
 
   makeMove($square) {
-    const $li =  
+    // debugger
+    let pos = $square.data("pos");
+    // debugger 
+    let currentPlayer = this.game.currentPlayer;
+    // debugger 
+    this.game.playMove(pos);
+    $square.addClass(currentPlayer).append(currentPlayer);
+
+    if (this.game.winner()) {
+      $("body").append("YOUR A WINNER!!")
+      
+    };
+
+    if (this.game.isOver()) {
+      $("body").append("ITS A DRAW!!")
+    };    
+
   }
 
   setupBoard() {

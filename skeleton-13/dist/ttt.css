@@ -1,25 +1,36 @@
-
-ul {
-
-}
+/* let ul,li,.x,.o */
 
 ul {
     display: flex;
     flex-wrap: wrap;
+    width: 230px;
     border: solid;
     border-radius: 5px;
     border-color: black;
 }
 
-li{
-    display: inline-block;
+li {
+    display: flex;
     border: solid;
     border-radius: 5px;
     background-color: aquamarine;
     border-color: black;
     padding: 30px;
+    justify-content: space-between;
 }
 
 li:hover {
     background-color: gray;
+}
+
+.x {
+    background-color: azure;
+    font-size: 20px;
+    padding: 22px;
+}
+
+.o {
+    background-color: blueviolet;
+    font-size: 20px;
+    padding: 22px;
 }

@@ -53,9 +53,9 @@ eval("\nconst MoveError = function (msg) { this.msg = msg; };\n\n// MoveError re
 /*!*************************!*\
   !*** ./src/ttt-view.js ***!
   \*************************/
-/***/ (() => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("throw new Error(\"Module parse failed: Unexpected token (24:2)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n|   makeMove($square) {\\n|     const $li =  \\n>   }\\n| \\n|   setupBoard() {\");\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("const Board = __webpack_require__(/*! ./board.js */ \"./src/board.js\");\nconst Game = __webpack_require__(/*! ./game.js */ \"./src/game.js\");\n\nclass View {\n  constructor(game, $el) {\n    this.game = game;\n    this.$el = $el;\n\n    this.setupBoard();\n    this.bindEvents();\n  }\n\n  bindEvents() {  \n    const bindEvent = e => {\n      // debugger\n      const $li = $(e.currentTarget);\n      this.makeMove($li);\n    }\n  \n    $(\"ul\").on(\"click\", \"li\", bindEvent);\n  }\n\n  makeMove($square) {\n    // debugger\n    let pos = $square.data(\"pos\");\n    // debugger \n    let currentPlayer = this.game.currentPlayer;\n    // debugger \n    this.game.playMove(pos);\n    $square.addClass(currentPlayer).append(currentPlayer);\n\n    if (this.game.winner()) {\n      $(\"body\").append(\"YOUR A WINNER!!\")\n    };\n\n    if (this.game.isOver()) {\n      $(\"body\").append(\"ITS A DRAW!!\")\n    };    \n\n  }\n\n  setupBoard() {\n    let $ul = $(\"<ul>\");\n    for (let i = 0; i < 3; i++) {\n      for (let j = 0; j < 3; j++) {\n        let $li = $(\"<li>\");\n        $li.data(\"pos\", [i,j]);\n        $ul.append($li);\n    \n      }\n    }\n    this.$el.append($ul);\n  }\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ })
 
