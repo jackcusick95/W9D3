@@ -2,7 +2,8 @@ const Board = require("./board.js");
 
 class View {
   constructor(game, $el) {
-
+    this.game = game;
+    this.$el = $el;
   }
 
   bindEvents() {}
@@ -10,8 +11,14 @@ class View {
   makeMove($square) {}
 
   setupBoard() {
-    const newBoard = new Board();
-    return newBoard;
+    let $ul = $("<ul>");
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        let $li = $("<li>");
+        $ul.append($li);
+      }
+    }
+    this.$el.append($ul);
   }
 }
 

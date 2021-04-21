@@ -5,10 +5,11 @@ window.game = Game;
 
 console.log("webpac is ready !!")
   $(() => {
+    const $view = $(".ttt");
     const newGame = new Game();
-    const newView = new View();
+    new View(newGame, $view);
 
-    // changes
+
 
   });
 
