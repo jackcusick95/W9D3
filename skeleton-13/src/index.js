@@ -8,5 +8,7 @@ console.log("webpac is ready !!")
     const newGame = new Game();
     const newView = new View();
 
+    // changes
+
   });
 
