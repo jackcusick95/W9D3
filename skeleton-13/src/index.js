@@ -1,6 +1,12 @@
-const View = // require appropriate file
-const Game = // require appropriate file
+const View = require("./ttt-view.js");
+window.view = View;
+const Game = require("./game.js")
+window.game = Game;
 
+console.log("webpac is ready !!")
   $(() => {
-    // Your code here
+    const newGame = new Game();
+    const newView = new View();
+
   });
+

@@ -1,11 +1,18 @@
+const Board = require("./board.js");
+
 class View {
-  constructor(game, $el) {}
+  constructor(game, $el) {
+
+  }
 
   bindEvents() {}
 
   makeMove($square) {}
 
-  setupBoard() {}
+  setupBoard() {
+    const newBoard = new Board();
+    return newBoard;
+  }
 }
 
 module.exports = View;
