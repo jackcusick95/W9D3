@@ -1,7 +1,25 @@
+
+ul {
+
+}
+
 ul {
     display: flex;
     flex-wrap: wrap;
+    border: solid;
+    border-radius: 5px;
+    border-color: black;
+}
+
+li{
+    display: inline-block;
+    border: solid;
     border-radius: 5px;
     background-color: aquamarine;
     border-color: black;
+    padding: 30px;
+}
+
+li:hover {
+    background-color: gray;
 }
